@@ -1,0 +1,8 @@
+{
+  "name": "Eliza Abing Portfolio",
+  "description": "A high-performance, responsive portfolio website featuring dark mode, smooth animations, and a professional developer showcase.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
