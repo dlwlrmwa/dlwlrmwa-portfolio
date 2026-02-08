@@ -294,10 +294,10 @@ const App: React.FC = () => {
                   
                   <div className="mt-auto">
                     <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">FOLLOW ME</h4>
-                    <div className="flex gap-3 mt-4">
+                    <div className="flex gap-3 mt-4 cursor-pointer">
                       <a href="#" className="social-btn"><Linkedin size={20} /></a>
-                      <a href="#" className="social-btn"><Github size={20} /></a>
-                      <a href="#" className="social-btn"><Facebook size={20} /></a>
+                      <a href="https://github.com/dlwlrmwa" className="social-btn"><Github size={20} /></a>
+                      <a href="https://www.facebook.com/elicitaffairs" className="social-btn"><Facebook size={20} /></a>
                     </div>
                   </div>
                 </div>
