@@ -65,7 +65,6 @@ export const CERTIFICATIONS = [
   { name: 'Information Management', provider: 'CodeChum', year: '2025' },
   { name: 'Certificate of Completion', provider: 'Learnovers', year: '2025' },
   { name: 'Intermediate Python', provider: 'DataCamp', year: '2025' },
-  { name: 'Data Visualization with Python', provider: 'DataCamp', year: '2025' },
 ];
 
 // Tech stack logo URLs from devicon CDN
