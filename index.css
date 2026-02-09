@@ -21,19 +21,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fcfcfc;
-  color: #0f172a;
+  color: #020407;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .dark body,
 body.dark,
 html.dark body {
-  background-color: #020617;
-  color: #f1f5f9;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 html.dark {
-  background-color: #020617;
+  background-color: #000000;
 }
 
 /* Card Component */
@@ -52,12 +52,12 @@ html.dark {
 }
 
 .dark .card {
-  background: #0f172a;
-  border-color: #1e293b;
+  background: #000000;
+  border-color: #222222;
 }
 
 .dark .card:not(.no-hover):hover {
-  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.4), 0 20px 40px -5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 30px -5px rgba(255, 255, 255, 0.05), 0 20px 40px -5px rgba(255, 255, 255, 0.03);
 }
 
 /* Section Title */
@@ -68,7 +68,7 @@ html.dark {
   margin-bottom: 1.25rem;
   font-size: 1rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #000000;
 }
 
 .dark .section-title {
@@ -93,7 +93,7 @@ html.dark {
 }
 
 .dark .view-all:hover {
-  color: #e2e8f0;
+  color: #ffffff;
 }
 
 /* Get in Touch Items */
@@ -115,12 +115,12 @@ html.dark {
 }
 
 .dark .get-in-touch-item {
-  background: #0f172a;
-  border-color: #1e293b;
+  background: #000000;
+  border-color: #222222;
 }
 
 .dark .get-in-touch-item:hover {
-  border-color: #475569;
+  border-color: #ffffff;
 }
 
 /* Social Button */
@@ -140,19 +140,19 @@ html.dark {
 }
 
 .social-btn:hover {
-  color: #0f172a;
+  color: #000000;
   border-color: #cbd5e1;
   transform: translateY(-2px);
 }
 
 .dark .social-btn {
-  background: #0f172a;
-  border-color: #1e293b;
+  background: #000000;
+  border-color: #222222;
 }
 
 .dark .social-btn:hover {
   color: white;
-  border-color: #475569;
+  border-color: #ffffff;
 }
 
 /* Animations */
@@ -230,11 +230,11 @@ html.dark {
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #475569;
+  background: #333333;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: #555555;
 }
 
 /* Focus Styles */
@@ -260,7 +260,7 @@ textarea:focus-visible {
 }
 
 .dark .profile-fallback {
-  background: linear-gradient(135deg, #1e3a5f 0%, #312e81 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
 }
 
 /* Hover Effects */
@@ -326,13 +326,13 @@ textarea:focus-visible {
 }
 
 .dark .btn-secondary {
-  background: #1e293b;
+  background: #000000;
   color: white;
-  border-color: #334155;
+  border-color: #222222;
 }
 
 .dark .btn-secondary:hover {
-  background: #334155;
+  background: #111111;
 }
 
 /* Timeline Styles */
@@ -346,7 +346,7 @@ textarea:focus-visible {
 }
 
 .dark .timeline-line {
-  background: #1e293b;
+  background: #222222;
 }
 
 .timeline-dot {
@@ -364,8 +364,8 @@ textarea:focus-visible {
 }
 
 .dark .timeline-dot {
-  border-color: #475569;
-  background: #0f172a;
+  border-color: #333333;
+  background: #000000;
 }
 
 .timeline-item:hover .timeline-dot {
@@ -387,12 +387,12 @@ textarea:focus-visible {
 }
 
 .dark .cert-card {
-  background: rgba(30, 41, 59, 0.4);
-  border-color: rgba(51, 65, 85, 0.5);
+  background: rgba(17, 17, 17, 0.6);
+  border-color: #222222;
 }
 
 .dark .cert-card:hover {
-  border-color: #475569;
+  border-color: #444444;
 }
 
 /* Image Hover Effects */
@@ -417,7 +417,7 @@ textarea:focus-visible {
 }
 
 .dark .rec-dot {
-  background: #475569;
+  background: #333333;
 }
 
 .dark .rec-dot.active {

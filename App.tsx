@@ -21,6 +21,7 @@ import {
   Facebook,
   FileText
 } from 'lucide-react';
+import { X } from 'lucide-react';
 import { PROJECTS, TECH_STACK, EXPERIENCE, CERTIFICATIONS, TECH_LOGOS } from './constants';
 
 const App: React.FC = () => {
@@ -28,6 +29,7 @@ const App: React.FC = () => {
     const saved = localStorage.getItem('theme');
     return saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
   });
+  const [showPhotoModal, setShowPhotoModal] = useState(false);
 
   useEffect(() => {
     if (darkMode) {
@@ -40,26 +42,29 @@ const App: React.FC = () => {
   }, [darkMode]);
 
   return (
-    <div className={`min-h-screen pb-2 transition-colors duration-300 ${darkMode ? 'bg-slate-950' : 'bg-[#fcfcfc]'}`}>
-      <div className="max-w-6xl mx-auto px-4 py-8 md:py-6">
+    <div className={`min-h-screen pb-2 transition-colors duration-300 ${darkMode ? 'bg-black' : 'bg-[#fcfcfc]'}`}>
+      <div className="max-w-5xl mx-auto px-3 py-6 md:py-4">
         
         {/* Header Section */}
         <div className="card no-hover p-8 mb-5 flex flex-col items-center md:flex-row md:items-start text-center md:text-left gap-10 relative">
           <div className="absolute top-6 right-6">
             <button 
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+              className="p-2.5 rounded-xl bg-slate-50 dark:bg-black border border-slate-200 dark:border-neutral-800 hover:bg-slate-100 dark:hover:bg-neutral-900 transition-colors"
               aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {darkMode ? <Sun size={18} className="text-yellow-400" /> : <Moon size={18} className="text-slate-600" />}
             </button>
           </div>
 
-          <div className="w-40 h-40 rounded-2xl overflow-hidden flex-shrink-0 border-2 border-slate-200 dark:border-slate-700 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50">
+          <div 
+            className="w-40 h-40 rounded-2xl overflow-hidden flex-shrink-0 border-2 border-slate-200 dark:border-neutral-800 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-neutral-900 dark:to-neutral-800 cursor-pointer hover:ring-4 hover:ring-blue-500/30 transition-all"
+            onClick={() => setShowPhotoModal(true)}
+          >
             <img 
-              src="my-portrait.jpg" 
+              src="android-chrome-512x512.png" 
               alt="Eliza Abing" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
@@ -81,7 +86,7 @@ const App: React.FC = () => {
               <span>Davao City, Philippines</span>
             </div>
             
-            <p className="text-[14px] font-medium text-slate-600 dark:text-slate-400 mb-8 max-w-xl">
+            <p className="text-[14px] font-medium text-slate-600 dark:text-neutral-400 mb-8 max-w-xl">
               Aspiring Full-Stack Developer | Student Freelancer | UI/UX & SEO
             </p>
             
@@ -89,14 +94,14 @@ const App: React.FC = () => {
               <button className="flex items-center gap-2 px-5 py-2.5 bg-black text-white dark:bg-white dark:text-black rounded-xl text-[13px] font-bold hover:opacity-90 transition-all shadow-sm">
                 <Calendar size={16} /> Schedule a Call
               </button>
-              <button className="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-[13px] font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm">
+              <button className="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-black border border-slate-200 dark:border-neutral-800 rounded-xl text-[13px] font-bold hover:bg-slate-50 dark:hover:bg-neutral-900 transition-colors shadow-sm">
                 <Mail size={16} /> Send Email
               </button>
               <a 
                 href="/Eliza Abing - Resume.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-[13px] font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm"
+                className="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-black border border-slate-200 dark:border-neutral-800 rounded-xl text-[13px] font-bold hover:bg-slate-50 dark:hover:bg-neutral-900 transition-colors shadow-sm"
               >
                 <FileText size={16} /> Resume
               </a>
@@ -117,7 +122,7 @@ const App: React.FC = () => {
                    <span className="text-[18px]">About Me</span>
                 </div>
               </div>
-              <div className="text-[13px] text-slate-600 dark:text-slate-400 space-y-4 leading-relaxed font-medium">
+              <div className="text-[13px] text-slate-600 dark:text-neutral-400 space-y-4 leading-relaxed font-medium">
                 <p>As a BSIT student at Holy Cross of Davao College, I focus on crafting efficient, user-centered digital experiences while bridging the worlds of design and development.</p>
                 <p>I'm an aspiring Full-Stack Developer and UI/UX Designer currently exploring WordPress, SEO, and Data Analytics—eager to turn academic knowledge into real-world impact.</p>
               </div>
@@ -131,9 +136,9 @@ const App: React.FC = () => {
                    <span className="text-[18px]">Education</span>
                 </div>
               </div>
-              <div className="p-5 bg-slate-50 dark:bg-slate-800/40 rounded-xl border border-slate-100 dark:border-slate-700/50">
+              <div className="p-5 bg-slate-50 dark:bg-neutral-900 rounded-xl border border-slate-100 dark:border-neutral-800">
                 <p className="text-[14px] font-bold mb-1 tracking-tight">BS Information Technology</p>
-                <p className="text-[13px] text-slate-600 dark:text-slate-400 font-medium">Holy Cross of Davao College</p>
+                <p className="text-[13px] text-slate-600 dark:text-neutral-400 font-medium">Holy Cross of Davao College</p>
                 <p className="text-[12px] text-slate-500 font-medium mt-1">2023 - 2027</p>
               </div>
             </div>
@@ -153,7 +158,7 @@ const App: React.FC = () => {
                     {TECH_STACK.frontend.map((tech, i) => (
                       <span 
                         key={i} 
-                        className="p-2.5 bg-slate-100 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-default"
+                        className="p-2.5 bg-slate-100 dark:bg-neutral-900 rounded-lg border border-slate-200 dark:border-neutral-800 hover:bg-slate-200 dark:hover:bg-neutral-800 transition-colors cursor-default"
                         title={tech}
                       >
                         <img src={TECH_LOGOS[tech]} alt={tech} className="w-6 h-6 object-contain" />
@@ -167,7 +172,7 @@ const App: React.FC = () => {
                     {TECH_STACK.backend.map((tech, i) => (
                       <span 
                         key={i} 
-                        className="p-2.5 bg-slate-100 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-default"
+                        className="p-2.5 bg-slate-100 dark:bg-neutral-900 rounded-lg border border-slate-200 dark:border-neutral-800 hover:bg-slate-200 dark:hover:bg-neutral-800 transition-colors cursor-default"
                         title={tech}
                       >
                         <img src={TECH_LOGOS[tech]} alt={tech} className="w-6 h-6 object-contain" />
@@ -181,7 +186,7 @@ const App: React.FC = () => {
                     {TECH_STACK.tools.map((tech, i) => (
                       <span 
                         key={i} 
-                        className="p-2.5 bg-slate-100 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-default"
+                        className="p-2.5 bg-slate-100 dark:bg-neutral-900 rounded-lg border border-slate-200 dark:border-neutral-800 hover:bg-slate-200 dark:hover:bg-neutral-800 transition-colors cursor-default"
                         title={tech}
                       >
                         <img src={TECH_LOGOS[tech]} alt={tech} className="w-6 h-6 object-contain" />
@@ -203,7 +208,7 @@ const App: React.FC = () => {
               </div>
               <div className="space-y-3">
                 {CERTIFICATIONS.map((cert, i) => (
-                  <div key={i} className="p-5 bg-slate-50 dark:bg-slate-800/40 rounded-xl border border-slate-100 dark:border-slate-700/50">
+                  <div key={i} className="p-5 bg-slate-50 dark:bg-neutral-900 rounded-xl border border-slate-100 dark:border-neutral-800">
                     <p className="text-[14px] font-bold mb-1 tracking-tight">{cert.name}</p>
                     <p className="text-[12px] text-slate-500 font-medium">{cert.provider} • {cert.year}</p>
                   </div>
@@ -223,10 +228,10 @@ const App: React.FC = () => {
                    <span className="text-[18px]">Experience</span>
                 </div>
               </div>
-              <div className="space-y-10 relative before:absolute before:inset-y-0 before:left-[5px] before:w-[1px] before:bg-slate-200 dark:before:bg-slate-800 ml-1">
+              <div className="space-y-10 relative before:absolute before:inset-y-0 before:left-[5px] before:w-[1px] before:bg-slate-200 dark:before:bg-neutral-800 ml-1">
                 {EXPERIENCE.map((exp, idx) => (
                   <div key={idx} className="relative pl-9">
-                    <div className="absolute left-[-1px] top-1.5 w-3 h-3 rounded-full border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 z-10 shadow-sm"></div>
+                    <div className="absolute left-[-1px] top-1.5 w-3 h-3 rounded-full border-2 border-slate-300 dark:border-neutral-700 bg-white dark:bg-black z-10 shadow-sm"></div>
                     <div className="flex justify-between items-start mb-1">
                       <h4 className="text-[15px] font-bold tracking-tight">{exp.role}</h4>
                       <span className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">{exp.period}</span>
@@ -253,7 +258,7 @@ const App: React.FC = () => {
                     href={project.liveUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="group block overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 hover:shadow-lg transition-all duration-300"
+                    className="group block overflow-hidden rounded-xl border border-slate-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 hover:shadow-lg transition-all duration-300"
                   >
                     <div className="aspect-video overflow-hidden">
                       <img 
@@ -267,10 +272,10 @@ const App: React.FC = () => {
                         <h4 className="text-[14px] font-bold tracking-tight">{project.title}</h4>
                         <ExternalLink size={14} className="text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors" />
                       </div>
-                      <p className="text-[12px] text-slate-500 dark:text-slate-400 mb-3 line-clamp-2">{project.description}</p>
+                      <p className="text-[12px] text-slate-500 dark:text-neutral-400 mb-3 line-clamp-2">{project.description}</p>
                       <div className="flex flex-wrap gap-1.5">
                         {project.tags.map((tag, i) => (
-                          <span key={i} className="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 rounded text-[10px] font-semibold text-slate-600 dark:text-slate-300">
+                          <span key={i} className="px-2 py-0.5 bg-slate-100 dark:bg-neutral-800 rounded text-[10px] font-semibold text-slate-600 dark:text-neutral-300">
                             {tag}
                           </span>
                         ))}
@@ -306,7 +311,7 @@ const App: React.FC = () => {
                   <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-4">GET IN TOUCH</h4>
                   
                   <div className="get-in-touch-item">
-                    <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-500">
+                    <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-neutral-900 flex items-center justify-center text-slate-500">
                       <Mail size={20} />
                     </div>
                     <div>
@@ -316,7 +321,7 @@ const App: React.FC = () => {
                   </div>
 
                   <div className="get-in-touch-item">
-                    <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-500">
+                    <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-neutral-900 flex items-center justify-center text-slate-500">
                       <Calendar size={20} />
                     </div>
                     <div>
@@ -332,8 +337,8 @@ const App: React.FC = () => {
         </div>
 
         {/* Footer */}
-        <div className="mt-10 pt-8 border-t border-slate-200 dark:border-slate-800 text-center space-y-2">
-          <p className="text-[15px] font-bold text-slate-800 dark:text-slate-200">
+        <div className="mt-10 pt-8 border-t border-slate-200 dark:border-neutral-800 text-center space-y-2">
+          <p className="text-[15px] font-bold text-slate-800 dark:text-white">
             © 2026 Eliza Abing. All Rights Reserved.
           </p>
           <p className="text-[13px] font-medium text-slate-400">
@@ -349,6 +354,32 @@ const App: React.FC = () => {
           Chat with Eli
         </button>
       </div>
+
+      {/* Photo Modal */}
+      {showPhotoModal && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm animate-fade-out"
+          onClick={() => setShowPhotoModal(false)}
+        >
+          <button 
+            className="absolute top-12 right-10 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+            onClick={() => setShowPhotoModal(false)}
+            aria-label="Close photo"
+          >
+            <X size={24} />
+          </button>
+          <div 
+            className="relative max-w-3xl max-h-[85vh] mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img 
+              src="android-chrome-512x512.png" 
+              alt="Eliza Abing - Full View" 
+              className="w-full h-full object-contain rounded-2xl shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
